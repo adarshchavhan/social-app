@@ -17,6 +17,8 @@ dotenv.config({
 });
 connectDb();
 
+const CLIENT_URL = process.env.CLIENT_URL;
+
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
     api_key: process.env.CLOUDINARY_KEY,
@@ -27,7 +29,7 @@ app.use(express.json({limit: '10MB'}));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: CLIENT_URL,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
