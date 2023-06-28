@@ -1,0 +1,81 @@
+@import '../../index.scss';
+
+.header{
+    width: 100%;
+    background: $white;
+    border-bottom: 1px solid $shadow;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    .wrapper{
+        width: 100%;
+        max-width: $maxW;
+        height: 60px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: 600px) {
+            height:50px;
+        }
+        .logo{
+            display: flex;
+            svg {
+                transition: .2s linear;
+            }
+            &:hover{
+                cursor: none;
+                svg{
+                    animation: logoAnimation .5s ease-in 0ms infinite alternate-reverse;
+                }
+                @keyframes logoAnimation {
+                    from{
+                        scale: .9;
+                    }
+                    to{
+                        scale: 1;
+                    }
+                }
+            }
+            @media (max-width: 600px){
+                display: none;
+            }
+        }
+        .nav{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                svg, 
+                img{
+                    width: 20px;
+                    height: 20px;
+                    transition: .2s linear;
+                }
+                &:hover{
+                    background: #f8f8f8;
+                    svg,
+                    img{
+                        scale: 1.1;
+                    }
+                }
+            }
+            @media (max-width: 600px){
+                width: 100%;
+                justify-content: space-evenly;
+                .btn{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
