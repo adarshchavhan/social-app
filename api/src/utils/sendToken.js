@@ -5,7 +5,8 @@ exports.sendToken = async (res, status, message, user) => {
 
     const cookieOptions = {
         maxAge: 7*24*60*60*1000,
-        httpOnly: false
+        secure: true,
+        sameSite: 'none'
     }
 
     res.status(status)
