@@ -17,7 +17,7 @@ dotenv.config({
 });
 connectDb();
 
-const CLIENT_URL = process.env.CLIENT_URL;
+const frontendUrl = process.env.CLIENT_URL;
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
@@ -29,9 +29,9 @@ app.use(express.json({limit: '10MB'}));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://ig-social.onrender.com',
+    origin: frontendUrl,
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
+    methods: ['GET','POST','PUT', 'DELETE']
 }));
 
 // routes
