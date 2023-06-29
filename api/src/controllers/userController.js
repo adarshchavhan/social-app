@@ -51,7 +51,9 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = catchAsync(async (req, res, next) => {
-  const cookieOptions = { maxAge: 0, httpOnly: true };
+  const cookieOptions = { maxAge: 0, secure: true,
+            sameSite: 'none' 
+                        };
 
   res.cookie("auth_token", null, cookieOptions).send({
     success: true,
